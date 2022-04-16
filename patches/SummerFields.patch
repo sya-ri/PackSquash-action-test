@@ -1,3 +1,15 @@
+diff --git a/assets/minecraft/blockstates/polished_andesite.json b/assets/minecraft/blockstates/polished_andesite.json
+index b69a30fc..32858cfb 100644
+--- a/assets/minecraft/blockstates/polished_andesite.json
++++ b/assets/minecraft/blockstates/polished_andesite.json
+@@ -8,4 +8,4 @@
+             { "model": "minecraft:block_full/polished/polished_andesite_5" }
+         ]
+     }
+-}4
+\ No newline at end of file
++}
+\ No newline at end of file
 diff --git a/pack.mcmeta b/pack.mcmeta
 index 812ab1db..c774b018 100644
 --- a/pack.mcmeta
