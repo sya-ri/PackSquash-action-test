@@ -1,14 +1,13 @@
 name: Test
 on:
-  push:
   workflow_dispatch:
+    inputs:
+      path:
+        description: Enter a path of the resource pack for a test. (Programmer-Art-Plus, SummerFields)
+        required: true
 jobs:
   master:
-    strategy:
-      matrix:
-        path:
-          - Programmer-Art-Plus
-          - SummerFields
+    if: github.event.inputs.path == 'Programmer-Art-Plus' ||github.event.inputs.path == 'SummerFields'
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -25,15 +24,11 @@ jobs:
       - name: Run PackSquash
         uses: ComunidadAylas/PackSquash-action@master
         with:
-          path: ${{ matrix.path }}
+          path: ${{ github.event.inputs.path }}
           allow_optifine_mod: true
-          artifact_name: ${{ matrix.path }} ${{ github.job }}
+          artifact_name: ${{ github.event.inputs.path }} ${{ github.job }}
   v2_0_2:
-    strategy:
-      matrix:
-        path:
-          - Programmer-Art-Plus
-          - SummerFields
+    if: github.event.inputs.path == 'Programmer-Art-Plus' ||github.event.inputs.path == 'SummerFields'
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -50,15 +45,11 @@ jobs:
       - name: Run PackSquash
         uses: ComunidadAylas/PackSquash-action@v2.0.2
         with:
-          path: ${{ matrix.path }}
+          path: ${{ github.event.inputs.path }}
           allow_optifine_mod: true
-          artifact_name: ${{ matrix.path }} ${{ github.job }}
+          artifact_name: ${{ github.event.inputs.path }} ${{ github.job }}
   v2_0_1:
-    strategy:
-      matrix:
-        path:
-          - Programmer-Art-Plus
-          - SummerFields
+    if: github.event.inputs.path == 'Programmer-Art-Plus' ||github.event.inputs.path == 'SummerFields'
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -75,15 +66,11 @@ jobs:
       - name: Run PackSquash
         uses: ComunidadAylas/PackSquash-action@v2.0.1
         with:
-          path: ${{ matrix.path }}
+          path: ${{ github.event.inputs.path }}
           allow_optifine_mod: true
-          artifact_name: ${{ matrix.path }} ${{ github.job }}
+          artifact_name: ${{ github.event.inputs.path }} ${{ github.job }}
   v3:
-    strategy:
-      matrix:
-        path:
-          - Programmer-Art-Plus
-          - SummerFields
+    if: github.event.inputs.path == 'Programmer-Art-Plus' ||github.event.inputs.path == 'SummerFields'
     runs-on: ubuntu-latest
     steps:
       - name: Clone repository
@@ -100,6 +87,6 @@ jobs:
       - name: Run PackSquash
         uses: sya-ri/PackSquash-action@v3
         with:
-          path: ${{ matrix.path }}
+          path: ${{ github.event.inputs.path }}
           allow_optifine_mod: true
-          artifact_name: ${{ matrix.path }} ${{ github.job }}
+          artifact_name: ${{ github.event.inputs.path }} ${{ github.job }}
