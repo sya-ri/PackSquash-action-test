@@ -1,0 +1,54 @@
+name: Test
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  master:
+    strategy:
+      matrix:
+        path:
+          - Programmer-Art-Plus
+          - SummerFields
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: true
+  v2:
+    strategy:
+      matrix:
+        path:
+          - Programmer-Art-Plus
+          - SummerFields
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: true
+      - name: Run PackSquash
+        uses: ComunidadAylas/PackSquash-action@v2
+        with:
+          path: ${{ matrix.path }}
+          artifact_name: ${{ matrix.path }}
+  v3:
+    strategy:
+      matrix:
+        path:
+          - Programmer-Art-Plus
+          - SummerFields
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: true
+      - name: Run PackSquash
+        uses: sya-ri/PackSquash-action@v3
+        with:
+          path: ${{ matrix.path }}
+          artifact_name: ${{ matrix.path }}
