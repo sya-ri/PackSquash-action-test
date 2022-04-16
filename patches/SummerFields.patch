@@ -1,11 +1,12 @@
 diff --git a/pack.mcmeta b/pack.mcmeta
+index 812ab1db..c774b018 100644
 --- a/pack.mcmeta
 +++ b/pack.mcmeta
 @@ -1,6 +1,6 @@
  {
    "pack": {
      "pack_format": 7,
--    "description": "SummerFields bï¿½ta"
+-    "description": "SummerFields bêta"
 +    "description": "SummerFields beta"
    }
  }

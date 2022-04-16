@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
           submodules: true
       - name: Apply patch
-        run: ./patch.sh
+        run: ./scripts/apply-patch.sh
       - name: Run PackSquash
         uses: ComunidadAylas/PackSquash-action@master
         with:
@@ -37,7 +37,7 @@ jobs:
           fetch-depth: 0
           submodules: true
       - name: Apply patch
-        run: ./patch.sh
+        run: ./scripts/apply-patch.sh
       - name: Run PackSquash
         uses: ComunidadAylas/PackSquash-action@v2
         with:
@@ -57,7 +57,7 @@ jobs:
           fetch-depth: 0
           submodules: true
       - name: Apply patch
-        run: ./patch.sh
+        run: ./scripts/apply-patch.sh
       - name: Run PackSquash
         uses: sya-ri/PackSquash-action@v3
         with:
