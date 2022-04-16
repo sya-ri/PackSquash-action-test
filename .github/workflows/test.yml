@@ -26,6 +26,7 @@ jobs:
         uses: ComunidadAylas/PackSquash-action@master
         with:
           path: ${{ matrix.path }}
+          allow_optifine_mod: true
           artifact_name: ${{ matrix.path }} ${{ github.job }}
   v2:
     strategy:
@@ -50,6 +51,7 @@ jobs:
         uses: ComunidadAylas/PackSquash-action@v2
         with:
           path: ${{ matrix.path }}
+          allow_optifine_mod: true
           artifact_name: ${{ matrix.path }} ${{ github.job }}
   v3:
     strategy:
@@ -74,4 +76,5 @@ jobs:
         uses: sya-ri/PackSquash-action@v3
         with:
           path: ${{ matrix.path }}
+          allow_optifine_mod: true
           artifact_name: ${{ matrix.path }} ${{ github.job }}
