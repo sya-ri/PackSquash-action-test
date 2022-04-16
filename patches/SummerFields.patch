@@ -1,0 +1,11 @@
+diff --git a/pack.mcmeta b/pack.mcmeta
+--- a/pack.mcmeta
++++ b/pack.mcmeta
+@@ -1,6 +1,6 @@
+ {
+   "pack": {
+     "pack_format": 7,
+-    "description": "SummerFields b�ta"
++    "description": "SummerFields beta"
+   }
+ }
