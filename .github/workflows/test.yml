@@ -28,7 +28,7 @@ jobs:
           path: ${{ matrix.path }}
           allow_optifine_mod: true
           artifact_name: ${{ matrix.path }} ${{ github.job }}
-  v2:
+  v2_0_2:
     strategy:
       matrix:
         path:
@@ -48,7 +48,32 @@ jobs:
       - name: Apply patch
         run: ./scripts/apply-patch.sh
       - name: Run PackSquash
-        uses: ComunidadAylas/PackSquash-action@v2
+        uses: ComunidadAylas/PackSquash-action@v2.0.2
+        with:
+          path: ${{ matrix.path }}
+          allow_optifine_mod: true
+          artifact_name: ${{ matrix.path }} ${{ github.job }}
+  v2_0_1:
+    strategy:
+      matrix:
+        path:
+          - Programmer-Art-Plus
+          - SummerFields
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: true
+      - name: Git config
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Apply patch
+        run: ./scripts/apply-patch.sh
+      - name: Run PackSquash
+        uses: ComunidadAylas/PackSquash-action@v2.0.1
         with:
           path: ${{ matrix.path }}
           allow_optifine_mod: true
