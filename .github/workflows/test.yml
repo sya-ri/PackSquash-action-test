@@ -16,6 +16,10 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+      - name: Git config
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Apply patch
         run: ./scripts/apply-patch.sh
       - name: Run PackSquash
@@ -36,6 +40,10 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+      - name: Git config
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Apply patch
         run: ./scripts/apply-patch.sh
       - name: Run PackSquash
@@ -56,6 +64,10 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+      - name: Git config
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
       - name: Apply patch
         run: ./scripts/apply-patch.sh
       - name: Run PackSquash
