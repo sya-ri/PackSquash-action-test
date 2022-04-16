@@ -16,6 +16,11 @@ jobs:
         with:
           fetch-depth: 0
           submodules: true
+      - name: Run PackSquash
+        uses: ComunidadAylas/PackSquash-action@master
+        with:
+          path: ${{ matrix.path }}
+          artifact_name: ${{ matrix.path }} ${{ github.job }}
   v2:
     strategy:
       matrix:
@@ -33,7 +38,7 @@ jobs:
         uses: ComunidadAylas/PackSquash-action@v2
         with:
           path: ${{ matrix.path }}
-          artifact_name: ${{ matrix.path }}
+          artifact_name: ${{ matrix.path }} ${{ github.job }}
   v3:
     strategy:
       matrix:
@@ -51,4 +56,4 @@ jobs:
         uses: sya-ri/PackSquash-action@v3
         with:
           path: ${{ matrix.path }}
-          artifact_name: ${{ matrix.path }}
+          artifact_name: ${{ matrix.path }} ${{ github.job }}
