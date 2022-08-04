@@ -14,10 +14,8 @@ jobs:
 
     strategy:
       matrix:
-        test-name: [submodule-caching, master, v2, v3]
+        test-name: [master, v2, v3]
         include:
-          - test-name: submodule-caching
-            packsquash-action: ComunidadAylas/PackSquash-action@master
           - test-name: master
             packsquash-action: ComunidadAylas/PackSquash-action@master
           - test-name: v2
