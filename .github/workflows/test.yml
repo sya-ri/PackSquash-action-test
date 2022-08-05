@@ -7,21 +7,11 @@ on:
           (Programmer-Art-Plus, SummerFields, golden-days-base)
         required: true
 jobs:
-  test:
+  test-master:
+
     if: github.event.inputs.path == 'Programmer-Art-Plus' ||
       github.event.inputs.path == 'SummerFields' ||
       github.event.inputs.path == 'golden-days-base'
-
-    strategy:
-      matrix:
-        test-name: [master, v2, v3]
-        include:
-          - test-name: master
-            packsquash-action: ComunidadAylas/PackSquash-action@master
-          - test-name: v2
-            packsquash-action: ComunidadAylas/PackSquash-action@v2
-          - test-name: v3
-            packsquash-action: ComunidadAylas/PackSquash-action@v3
 
     runs-on: ubuntu-latest
     steps:
@@ -37,8 +27,60 @@ jobs:
       - name: Apply patches
         run: ./scripts/apply-patch.sh
       - name: Run PackSquash
-        uses: ${{ matrix.packsquash-action }}
+        uses: ComunidadAylas/PackSquash-action@master
         with:
           path: ${{ github.event.inputs.path }}
           allow_optifine_mod: true
-          artifact_name: ${{ github.event.inputs.path }} ${{ matrix.test-name }}
+          artifact_name: ${{ github.event.inputs.path }} ${{ github.job }}
+
+  test-v2:
+
+    if: github.event.inputs.path == 'Programmer-Art-Plus' ||
+      github.event.inputs.path == 'SummerFields' ||
+      github.event.inputs.path == 'golden-days-base'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: true
+      - name: Set Git author
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Apply patches
+        run: ./scripts/apply-patch.sh
+      - name: Run PackSquash
+        uses: ComunidadAylas/PackSquash-action@v2
+        with:
+          path: ${{ github.event.inputs.path }}
+          allow_optifine_mod: true
+          artifact_name: ${{ github.event.inputs.path }} ${{ github.job }}
+
+  test-v3:
+
+    if: github.event.inputs.path == 'Programmer-Art-Plus' ||
+      github.event.inputs.path == 'SummerFields' ||
+      github.event.inputs.path == 'golden-days-base'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: true
+      - name: Set Git author
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Apply patches
+        run: ./scripts/apply-patch.sh
+      - name: Run PackSquash
+        uses: ComunidadAylas/PackSquash-action@v3
+        with:
+          path: ${{ github.event.inputs.path }}
+          allow_optifine_mod: true
+          artifact_name: ${{ github.event.inputs.path }} ${{ github.job }}
