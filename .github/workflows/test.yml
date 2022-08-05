@@ -4,14 +4,14 @@ on:
     inputs:
       path:
         description: Enter the path of the resource pack to test.
-          (Programmer-Art-Plus, SummerFields, golden-days-base)
+          (Programmer-Art-Plus, SummerFields, golden-days/golden-days-base)
         required: true
 jobs:
   test-master:
 
     if: github.event.inputs.path == 'Programmer-Art-Plus' ||
       github.event.inputs.path == 'SummerFields' ||
-      github.event.inputs.path == 'golden-days-base'
+      github.event.inputs.path == 'golden-days/golden-days-base'
 
     runs-on: ubuntu-latest
     steps:
@@ -38,7 +38,7 @@ jobs:
 
     if: github.event.inputs.path == 'Programmer-Art-Plus' ||
       github.event.inputs.path == 'SummerFields' ||
-      github.event.inputs.path == 'golden-days-base'
+      github.event.inputs.path == 'golden-days/golden-days-base'
 
     runs-on: ubuntu-latest
     steps:
@@ -65,7 +65,7 @@ jobs:
 
     if: github.event.inputs.path == 'Programmer-Art-Plus' ||
       github.event.inputs.path == 'SummerFields' ||
-      github.event.inputs.path == 'golden-days-base'
+      github.event.inputs.path == 'golden-days/golden-days-base'
 
     runs-on: ubuntu-latest
     steps:
