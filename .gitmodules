@@ -4,3 +4,6 @@
 [submodule "Programmer-Art-Plus"]
 	path = Programmer-Art-Plus
 	url = https://github.com/Crackers0106/Programmer-Art-Plus
+[submodule "golden-days"]
+	path = golden-days
+	url = https://github.com/PoeticRainbow/golden-days
